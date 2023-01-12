@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     Home
-    <p>My name is {{ name }} and my age is {{ age }}</p>
+    <p ref="p">My name is {{ name }} and my age is {{ age }}</p>
     <button @click="handleClick">Click me</button>
   </div>
 </template>
 
 <script>
-
+import { ref } from 'vue'
 export default {
   name: 'HomeView',
   /*
@@ -17,15 +17,22 @@ export default {
   */
   setup() {
     console.log('setup')
+    // this cannot be referenced here:
+    console.log('this:', this)
+
+    const p = ref(null)
+    console.log('Initial p', p, p.value) // p.value will be null until returned
 
     let name = 'Mario'
     let age = 30
 
     const handleClick = () => {
-      console.log('You clicked me')
+      console.log('You clicked me - here is p:', p, 'p.value:', p.value)
+      p.value.classList.add('test')
+      p.value.textContent = 'Hello, ninjas'
     }
 
-    return { name, age, handleClick }
+    return { name, age, handleClick, p }
   },
   /*
   data() is reactive - if the value changes at any point, this will be reflected in the webpage
