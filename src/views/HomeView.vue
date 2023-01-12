@@ -23,13 +23,17 @@ export default {
     const p = ref(null)
     console.log('Initial p', p, p.value) // p.value will be null until returned
 
-    let name = 'Mario'
-    let age = 30
+    // Refs are reactive values
+    const name = ref('Mario')
+    const age = ref(30)
 
     const handleClick = () => {
       console.log('You clicked me - here is p:', p, 'p.value:', p.value)
       p.value.classList.add('test')
       p.value.textContent = 'Hello, ninjas'
+
+      name.value = 'Luigi'
+      age.value = 35
     }
 
     return { name, age, handleClick, p }
