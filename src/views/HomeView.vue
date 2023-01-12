@@ -1,15 +1,21 @@
 <template>
   <div class="home">
-    Home
+    <h1>Home</h1>
     <p ref="p">My name is {{ name }} and my age is {{ age }}</p>
     <button @click="handleClick">Click me</button>
     <button @click="age++">Add 1 to age</button>
     <input type="text" v-model="name">
+    <h2>Refs</h2>
+    <p>{{ ninjaOne.name }} - {{ ninjaOne.age }}</p>
+    <button @click="updateNinjaOne">Update Ninja One</button>
+    <h2>Reactive</h2>
+    <p>{{ ninjaTwo.name }} - {{ ninjaTwo.age }}</p>
+    <button @click="updateNinjaTwo">Update Ninja Two</button>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 export default {
   name: 'HomeView',
   /*
@@ -28,6 +34,8 @@ export default {
     // Refs are reactive values
     const name = ref('Mario')
     const age = ref(30)
+    const ninjaOne = ref({ name: 'Mario', age: 30 })
+    const ninjaTwo = reactive({ name: 'Luigi', age: 35 }) // can't use primitive values with reactives. Use refs instead
 
     const handleClick = () => {
       console.log('You clicked me - here is p:', p, 'p.value:', p.value)
@@ -38,7 +46,15 @@ export default {
       age.value = 35
     }
 
-    return { name, age, handleClick, p }
+    const updateNinjaOne = () => {
+      ninjaOne.value.age = 40
+    }
+
+    const updateNinjaTwo = () => {
+      ninjaTwo.age = 45
+    }
+
+    return { name, age, handleClick, p, ninjaOne, updateNinjaOne, ninjaTwo, updateNinjaTwo }
   },
   /*
   data() is reactive - if the value changes at any point, this will be reflected in the webpage
