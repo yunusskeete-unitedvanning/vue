@@ -1,0 +1,24 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "Welcome to the new blog",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac euismod ante, at mattis elit. Mauris sollicitudin purus augue, et iaculis felis vehicula ut. Donec ut enim id magna condimentum fringilla. Integer dignissim, lectus posuere aliquam bibendum, metus ex sollicitudin velit, et viverra urna ipsum id lorem. Donec in ultrices odio, laoreet cursus nisl. Suspendisse consectetur mi in justo consectetur condimentum. Suspendisse quis urna eu nunc ullamcorper congue. Vivamus sit amet turpis id diam euismod tristique. Nunc nulla lacus, congue vel iaculis in, iaculis eu massa. Morbi laoreet non dolor ut laoreet. Suspendisse congue arcu non orci malesuada, sed elementum neque gravida. Nunc sed nisl at libero vulputate hendrerit. Sed consequat gravida malesuada. Duis eget nisl neque. Cras pulvinar lacus sit amet neque posuere, in volutpat nisi interdum. Sed semper commodo nisi, nec blandit tellus. Duis interdum urna id finibus lacinia. Maecenas mattis luctus sapien, mollis aliquam ex ultricies id. Cras ac odio sed arcu maximus vestibulum. Donec venenatis est sed felis viverra aliquet. Proin vulputate odio at lorem pharetra, pulvinar vehicula massa dapibus. In ut feugiat eros. Curabitur scelerisque vel nunc a rhoncus. Nunc quis turpis sed felis laoreet ullamcorper in et nisl. Aenean ac elementum velit. Maecenas tempus.",
+            "tags": [
+                "webdev",
+                "coding",
+                "news"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Top 5 CSS tips",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac euismod ante, at mattis elit. Mauris sollicitudin purus augue, et iaculis felis vehicula ut. Donec ut enim id magna condimentum fringilla. Integer dignissim, lectus posuere aliquam bibendum, metus ex sollicitudin velit, et viverra urna ipsum id lorem. Donec in ultrices odio, laoreet cursus nisl. Suspendisse consectetur mi in justo consectetur condimentum. Suspendisse quis urna eu nunc ullamcorper congue. Vivamus sit amet turpis id diam euismod tristique. Nunc nulla lacus, congue vel iaculis in, iaculis eu massa. Morbi laoreet non dolor ut laoreet. Suspendisse congue arcu non orci malesuada, sed elementum neque gravida. Nunc sed nisl at libero vulputate hendrerit. Sed consequat gravida malesuada. Duis eget nisl neque. Cras pulvinar lacus sit amet neque posuere, in volutpat nisi interdum. Sed semper commodo nisi, nec blandit tellus. Duis interdum urna id finibus lacinia. Maecenas mattis luctus sapien, mollis aliquam ex ultricies id. Cras ac odio sed arcu maximus vestibulum. Donec venenatis est sed felis viverra aliquet. Proin vulputate odio at lorem pharetra, pulvinar vehicula massa dapibus. In ut feugiat eros. Curabitur scelerisque vel nunc a rhoncus. Nunc quis turpis sed felis laoreet ullamcorper in et nisl. Aenean ac elementum velit. Maecenas tempus.",
+            "tags": [
+                "css",
+                "webdev",
+                "coding"
+            ]
+        }
+    ]
+}

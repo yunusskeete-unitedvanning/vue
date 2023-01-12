@@ -1,44 +1,48 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <input type="text" v-model="search">
-    <p>Search term - {{ search }}</p>
-    <div v-for="name in matchingNames" :key="name">{{ name }}</div>
-    <button @click="handleClick">Stop Watching</button>
+    <div v-if="error">{{ error }}</div>
+    <div v-if="posts.length">
+      <PostList v-if="showPosts" :posts="posts" />
+    </div>
+    <div v-else>Loading...</div>
+    
+    <button @click="showPosts = !showPosts">Toggle posts</button>
+    <button @click="posts.pop()">Delete a post</button>
   </div>
 </template>
 
 <script>
-import { ref, computed, watch, watchEffect } from 'vue'
+import PostList from '@/components/PostList.vue'
+import { ref } from 'vue'
+
 export default {
   name: 'HomeView',
+  components: { PostList },
   setup() {
-    const search = ref('')
-    const names = ref(['Mario', 'Yoshi', 'Luigi', 'Toad', 'Bowser', 'Koopa', 'Peach'])
+    const posts = ref([])
+    const error = ref(null)
 
-    // Watch the search ref, and every time it changes, fire this function
-    // Does not run initially
-    const stopWatch = watch(search, () => {
-      console.log('watch function ran')
-    })
-
-    // Runs inittially - watches any dependencies in the function and watches any value inside it.
-    // Can be used to run initially to get data from the database - and then update afterwards after user input
-    const stopEffect = watchEffect(() => {
-      console.log('watchEffect function ran', search.value)
-    })
-
-    const matchingNames = computed(() => {
-      return names.value.filter((name) => name.includes(search.value))
-    })
-
-    const handleClick = () => {
-      // stops watching
-      stopWatch()
-      stopEffect()
+    const load = async () => {
+      try {
+        let data = await fetch('http://localhost:3000/posts')
+        console.log(data)
+        if (!data.ok) {
+          throw Error('No data available')
+        }
+        posts.value = await data.json()
+      }
+      catch (err) {
+        error.value = err.message
+        console.log(error.value)
+      }
     }
 
-    return { names, search, matchingNames, handleClick }
+    load()
+
+    const showPosts = ref(true)
+
+    return { posts, error, showPosts }
   }
 }
 </script>
