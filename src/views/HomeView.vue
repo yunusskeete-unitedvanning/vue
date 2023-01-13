@@ -12,31 +12,17 @@
   </div>
 </template>
 
-<script>
+<script>// options api - use composition api
 import PostList from '@/components/PostList.vue'
+import getPosts from '../composables/getPosts'
 import { ref } from 'vue'
 
+// options api - use composition api
 export default {
   name: 'HomeView',
   components: { PostList },
   setup() {
-    const posts = ref([])
-    const error = ref(null)
-
-    const load = async () => {
-      try {
-        let data = await fetch('http://localhost:3000/posts')
-        console.log(data)
-        if (!data.ok) {
-          throw Error('No data available')
-        }
-        posts.value = await data.json()
-      }
-      catch (err) {
-        error.value = err.message
-        console.log(error.value)
-      }
-    }
+    const { posts, error, load } = getPosts()
 
     load()
 
