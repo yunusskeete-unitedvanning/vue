@@ -10,18 +10,12 @@
     </div>
 </template>
     
-<script>
+<script setup>
 import { computed } from 'vue'
-export default {
-    props: ['post'],
-    setup(props) {
-        const snippet = computed(() => {
-            return props.post.body.substring(0, 100) + '...' // return the first 100 characters of the string
-        })
-
-        return { snippet }
-    }
-}
+const props = defineProps(['post']);
+const snippet = computed(() => {
+    return props.post.body.substring(0, 100) + '...' // return the first 100 characters of the string
+});
 </script>
 
 

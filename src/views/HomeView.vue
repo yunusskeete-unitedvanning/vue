@@ -12,23 +12,13 @@
   </div>
 </template>
 
-<script>// options api - use composition api
+<script setup>
 import PostList from '@/components/PostList.vue'
 import getPosts from '../composables/getPosts'
 import { ref } from 'vue'
 
-// options api - use composition api
-export default {
-  name: 'HomeView',
-  components: { PostList },
-  setup() {
-    const { posts, error, load } = getPosts()
-
-    load()
-
-    const showPosts = ref(true)
-
-    return { posts, error, showPosts }
-  }
-}
+const name = 'HomeView';
+const { posts, error, load } = getPosts();
+load();
+const showPosts = ref(true);
 </script>

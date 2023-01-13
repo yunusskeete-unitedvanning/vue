@@ -1,8 +1,8 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
+    <router-link to="/">Home</router-link> | This follows us across all files
   </nav>
-  <router-view/>
+  <router-view/> <!-- This displays our content -->
 </template>
 
 <style>

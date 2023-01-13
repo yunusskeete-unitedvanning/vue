@@ -6,19 +6,12 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import getPost from '@/composables/getPost'
 
-export default {
-    props: ['id'],
-    setup(props) {
-        const { post, error, load } = getPost(props.id)
-
-        load()
-
-        return { post, error }
-    }
-}
+defineProps(['id']);
+const { post, error, load } = getPost(props.id);
+load();
 </script>
 
 <style>
